@@ -26,7 +26,7 @@ def throw_error():
     raise Exception('It failed!')
 
 
-with DAG(dag_id='test_dag_failure', description='A DAG that should never fail', default_args=default_args, tags=['test'], schedule_interval=None) as dag:
+with DAG(dag_id='test_dag_failure', description='A DAG that always fail.', default_args=default_args, tags=['test'], schedule_interval=None) as dag:
 
     should_succeed = DummyOperator(
         task_id='should_succeed'
