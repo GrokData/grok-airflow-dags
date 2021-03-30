@@ -38,5 +38,5 @@ with DAG(dag_id='example_dag', description='An example ETL dag', default_args=de
         python_callable=load
     )
 
-    extract >> transform >> load
+    extract_step >> transform_step >> load_step
 
