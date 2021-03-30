@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push to AWS
+        id: push_to_aws
         uses: gagoar/invoke-aws-lambda@master
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           FunctionName: airflow-dev-dag-repo-update
           REGION: us-east-2
+      - name: View Outputs
+        run: echo "${{ fromJSON(steps.push_to_aws.outputs.response) }}"
