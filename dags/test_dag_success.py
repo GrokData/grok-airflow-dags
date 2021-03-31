@@ -18,4 +18,5 @@ with DAG(dag_id='test_dag_success', description='A DAG that should never fail', 
         task_id='dummy_task2'
     )
 
+    dummy_task >> dummy_task2
 
